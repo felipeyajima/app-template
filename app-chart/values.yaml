@@ -1,0 +1,18 @@
+replicaCount: 1
+
+image:
+  repository: openjdk
+  tag: "17-jdk-slim"
+  pullPolicy: IfNotPresent
+
+app:
+  name: java-app
+  port: 8080
+
+service:
+  type: NodePort
+  port: 80
+  targetPort: 8080
+  nodePort: 30080 # Porta exposta no Node (pode ser alterada ou omitida para aleatória)
+
+resources: {}
